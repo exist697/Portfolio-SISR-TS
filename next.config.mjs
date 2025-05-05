@@ -14,18 +14,14 @@ const nextConfig = {
     minimumCacheTTL: 31536000, // 1 an
   },
   compress: true,
-  swcMinify: true,
-  optimizeFonts: true,
   experimental: {
     optimizeCss: true,
     scrollRestoration: true,
-    legacyBrowsers: false,
+    optimizePackageImports: ['lucide-react'],
+    optimizeServerReact: true,
     serverActions: {
       bodySizeLimit: '2mb',
     },
-    // ppr: true,
-    optimizePackageImports: ['lucide-react'],
-    optimizeServerReact: true,
   },
   headers: async () => [
     {
