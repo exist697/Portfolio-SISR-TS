@@ -1,0 +1,290 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variables CSS optimisées */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 230 85% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 280 75% 60%;
+    --secondary-foreground: 210 40% 98%;
+    --accent: 160 84% 39%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 230 85% 50%;
+    --radius: 0.5rem;
+    --header-height: 4rem;
+    --theme-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 230 85% 60%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 280 75% 65%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --accent: 160 84% 39%;
+    --accent-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 230 85% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    text-rendering: optimizeSpeed;
+    padding-top: var(--header-height);
+  }
+}
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+/* Transitions ciblées pour les éléments spécifiques */
+.header-scroll,
+.card,
+button,
+input,
+textarea,
+select,
+.badge,
+.gradient-bg,
+.btn-hover-effect,
+.nav-link-animation,
+[role="tab"] {
+  transition: background-color var(--theme-transition), border-color var(--theme-transition), color
+    var(--theme-transition), box-shadow var(--theme-transition), opacity var(--theme-transition);
+  will-change: background-color, border-color, color;
+}
+
+/* Optimisation des transitions pour le body et les éléments principaux */
+body,
+.bg-background,
+.bg-card,
+.bg-popover,
+.bg-primary,
+.bg-secondary,
+.bg-muted,
+.text-foreground,
+.text-card-foreground,
+.text-popover-foreground,
+.text-primary,
+.text-secondary,
+.text-muted-foreground,
+.border-border,
+.border-input {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Overlay pour transition de thème */
+.theme-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  background-color: hsl(var(--background));
+  transition: opacity 0.5s ease;
+}
+
+.theme-transition-overlay.active {
+  opacity: 0.2;
+}
+
+/* Header fixe optimisé */
+.header-scroll {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 50;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  will-change: transform, opacity, box-shadow;
+}
+
+.header-scroll-active {
+  background-color: hsl(var(--background) / 98%);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* Désactiver les animations si l'utilisateur préfère les mouvements réduits */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: opacity 150ms ease-out, background-color 150ms ease-out !important;
+    scroll-behavior: auto !important;
+  }
+
+  .theme-transition-overlay {
+    display: none !important;
+  }
+}
+
+/* Classes utilitaires */
+.gradient-bg {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--secondary) / 0.1));
+  transform: translateZ(0);
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: var(--radius);
+  background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--secondary)));
+  padding: 2px;
+}
+
+.gradient-border > div {
+  background: hsl(var(--background));
+  border-radius: calc(var(--radius) - 2px);
+}
+
+/* Animations optimisées */
+@layer utilities {
+  .card-hover-effect {
+    transition: transform 250ms ease-out, box-shadow 250ms ease-out, border-color 250ms ease-out !important;
+    will-change: transform, box-shadow;
+  }
+
+  .card-hover-effect:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.15);
+    border-color: hsl(var(--primary) / 0.3);
+  }
+
+  .card-icon {
+    transition: transform 250ms ease-out, color 250ms ease-out !important;
+  }
+
+  .card-hover-effect:hover .card-icon {
+    transform: scale(1.1);
+    color: hsl(var(--primary));
+  }
+
+  .skill-bar {
+    height: 8px;
+    border-radius: 4px;
+    background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--secondary)));
+    transform: translateZ(0);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-hover-effect {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link-animation {
+    position: relative;
+  }
+
+  .nav-link-animation::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: hsl(var(--primary));
+    transition: width 0.3s ease;
+  }
+
+  .nav-link-animation:hover::after {
+    width: 100%;
+  }
+
+  .image-scale {
+    transition: transform 0.3s ease;
+  }
+
+  .image-scale:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* Animations essentielles */
+@keyframes skill-bar-fill {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Optimisations pour les éléments interactifs */
+button,
+.button,
+a[role="button"] {
+  transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+  will-change: transform;
+}
+
+button:active,
+.button:active,
+a[role="button"]:active {
+  transform: scale(0.97);
+}
+
+/* Optimisations pour les éléments de formulaire */
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: hsl(var(--primary) / 0.5);
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.1);
+}
+
+/* Optimisations pour le scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation pour les icônes de thème */
+.theme-icon {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
