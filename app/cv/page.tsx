@@ -45,15 +45,11 @@ export default function CvPage() {
                 <div className="space-y-2 w-full text-sm">
                   <div className="flex justify-between transition-all duration-200 hover:translate-x-1">
                     <span className="font-medium">Email:</span>
-                    <span className="text-muted-foreground">ditsalamoun.mohamad@gmail.com</span>
+                    <span className="text-muted-foreground">m.ditsalamoun@proton.me</span>
                   </div>
                   <div className="flex justify-between transition-all duration-200 hover:translate-x-1">
                     <span className="font-medium">Localisation:</span>
-                    <span className="text-muted-foreground">Courbevoie (92400)</span>
-                  </div>
-                  <div className="flex justify-between transition-all duration-200 hover:translate-x-1">
-                    <span className="font-medium">Téléphone:</span>
-                    <span className="text-muted-foreground">07 83 93 86 47</span>
+                    <span className="text-muted-foreground">Région parisienne</span>
                   </div>
                   <div className="flex justify-between transition-all duration-200 hover:translate-x-1">
                     <span className="font-medium">GitHub:</span>
