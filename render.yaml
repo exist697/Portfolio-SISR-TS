@@ -1,0 +1,9 @@
+# render.yaml
+services:
+  - type: web
+    name: portfolio-next
+    env: node
+    buildCommand: pnpm install && pnpm build
+    startCommand: pnpm start
+    plan: free
+    autoDeploy: true
