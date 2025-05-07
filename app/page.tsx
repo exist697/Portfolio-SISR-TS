@@ -2,7 +2,17 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, BookOpen, Briefcase, Code, FileText, Lightbulb, GraduationCap, ClipboardList } from "lucide-react"
+import {
+  ArrowRight,
+  BookOpen,
+  Briefcase,
+  Code,
+  FileText,
+  Lightbulb,
+  GraduationCap,
+  ClipboardList,
+  Download,
+} from "lucide-react"
 import OptimizedImage from "@/components/image-optimization"
 import { Suspense } from "react"
 import ScrollAnimation from "@/components/scroll-animation"
@@ -101,6 +111,12 @@ export default function Home() {
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Button>
                 </Link>
+                <a href="/fiche-synthese.pdf" download="Fiche_Synthese_Mohamad.pdf">
+                  <Button className="gap-1 bg-secondary hover:bg-secondary/90 btn-hover-effect">
+                    Télécharger ma fiche synthèse
+                    <Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-1" />
+                  </Button>
+                </a>
                 <Link href="/contact">
                   <Button
                     variant="outline"

@@ -2,9 +2,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
-import { Download, FileText, Shield, Server, Code, CheckCircle2 } from "lucide-react"
+import { Download, FileText, Shield, Server, CheckCircle2 } from "lucide-react"
 import ScrollAnimation from "@/components/scroll-animation"
-import AnimatedListItem from "@/components/animated-list-item"
 
 export default function EpreuveE6Page() {
   return (
@@ -16,11 +15,8 @@ export default function EpreuveE6Page() {
         <p className="text-muted-foreground mb-8">Présentation de l'épreuve E6 du BTS SIO et des projets associés</p>
       </ScrollAnimation>
 
-      <Tabs defaultValue="presentation" className="w-full">
-        <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="presentation" className="transition-all duration-200">
-            Présentation de l'épreuve
-          </TabsTrigger>
+      <Tabs defaultValue="projets" className="w-full">
+        <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="projets" className="transition-all duration-200">
             Mes projets E6
           </TabsTrigger>
@@ -28,130 +24,6 @@ export default function EpreuveE6Page() {
             Documentation
           </TabsTrigger>
         </TabsList>
-
-        <TabsContent value="presentation" className="mt-6">
-          <ScrollAnimation>
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Shield className="h-5 w-5" />
-                  L'épreuve E6 - Cybersécurité des services informatiques
-                </CardTitle>
-                <CardDescription>Une épreuve clé du BTS SIO, commune aux options SISR et SLAM</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <ScrollAnimation delay={100}>
-                  <p>
-                    L'épreuve E6 "Cybersécurité des services informatiques" est une épreuve majeure du BTS SIO, commune
-                    aux deux options SISR et SLAM. Elle vise à évaluer les compétences des candidats en matière de
-                    protection des données et de sécurisation des services informatiques.
-                  </p>
-                </ScrollAnimation>
-
-                <ScrollAnimation delay={150}>
-                  <h3 className="text-xl font-semibold mt-6">Objectifs de l'épreuve</h3>
-                  <p>Cette épreuve a pour objectif d'évaluer les compétences du candidat à :</p>
-                  <ul className="list-disc pl-6 space-y-1 mt-2">
-                    {[
-                      "Protéger les données à caractère personnel",
-                      "Préserver l'identité numérique de l'organisation",
-                      "Sécuriser les équipements et les usages des utilisateurs",
-                      "Garantir la disponibilité, l'intégrité et la confidentialité des services informatiques et des données",
-                      "Assurer la cybersécurité d'une infrastructure, d'un système, d'un service",
-                    ].map((item, index) => (
-                      <AnimatedListItem key={index} index={index}>
-                        {item}
-                      </AnimatedListItem>
-                    ))}
-                  </ul>
-                </ScrollAnimation>
-
-                <ScrollAnimation delay={200}>
-                  <h3 className="text-xl font-semibold mt-6">Format de l'épreuve</h3>
-                  <div className="grid gap-4 md:grid-cols-2 mt-2">
-                    <div className="p-4 border rounded-lg transition-all duration-200 hover:border-primary/30 hover:shadow-sm">
-                      <h4 className="font-medium">Partie écrite (4h)</h4>
-                      <p className="text-sm text-muted-foreground mt-2">
-                        Étude de cas portant sur la cybersécurité d'une infrastructure, d'un système ou d'un service
-                        informatique. Le candidat doit analyser une situation professionnelle et proposer des solutions
-                        pour garantir la sécurité.
-                      </p>
-                    </div>
-                    <div className="p-4 border rounded-lg transition-all duration-200 hover:border-primary/30 hover:shadow-sm">
-                      <h4 className="font-medium">Partie pratique (40min)</h4>
-                      <p className="text-sm text-muted-foreground mt-2">
-                        Présentation orale d'un projet de cybersécurité réalisé en entreprise ou en formation. Le
-                        candidat doit démontrer sa capacité à mettre en œuvre des solutions de sécurité.
-                      </p>
-                    </div>
-                  </div>
-                </ScrollAnimation>
-
-                <ScrollAnimation delay={250}>
-                  <h3 className="text-xl font-semibold mt-6">Compétences évaluées</h3>
-                  <div className="grid gap-4 md:grid-cols-2 mt-2">
-                    <div className="p-4 border rounded-lg transition-all duration-200 hover:border-primary/30 hover:shadow-sm">
-                      <h4 className="font-medium flex items-center gap-2">
-                        <Server className="h-4 w-4 text-primary" />
-                        Pour l'option SISR
-                      </h4>
-                      <ul className="mt-2 space-y-1 text-sm">
-                        {[
-                          "• Sécurisation des infrastructures réseau",
-                          "• Mise en place de solutions de sécurité (pare-feu, VPN, etc.)",
-                          "• Gestion des identités et des accès",
-                          "• Supervision et détection d'incidents",
-                          "• Réponse aux incidents de sécurité",
-                        ].map((item, index) => (
-                          <li key={index} className="transition-all duration-200 hover:translate-x-1">
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="p-4 border rounded-lg transition-all duration-200 hover:border-primary/30 hover:shadow-sm">
-                      <h4 className="font-medium flex items-center gap-2">
-                        <Code className="h-4 w-4 text-primary" />
-                        Pour l'option SLAM
-                      </h4>
-                      <ul className="mt-2 space-y-1 text-sm">
-                        {[
-                          "• Sécurisation des applications",
-                          "• Protection des données dans les applications",
-                          "• Gestion de l'authentification et des autorisations",
-                          "• Tests de sécurité applicative",
-                          "• Correction des vulnérabilités",
-                        ].map((item, index) => (
-                          <li key={index} className="transition-all duration-200 hover:translate-x-1">
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </ScrollAnimation>
-
-                <ScrollAnimation delay={300}>
-                  <h3 className="text-xl font-semibold mt-6">Critères d'évaluation</h3>
-                  <ul className="list-disc pl-6 space-y-1 mt-2">
-                    {[
-                      "Pertinence des solutions proposées face aux problématiques de sécurité",
-                      "Qualité de l'analyse des risques et des menaces",
-                      "Maîtrise des concepts et technologies de cybersécurité",
-                      "Respect des normes et des bonnes pratiques",
-                      "Capacité à communiquer sur des problématiques de sécurité",
-                      "Prise en compte des aspects juridiques et éthiques",
-                    ].map((item, index) => (
-                      <AnimatedListItem key={index} index={index}>
-                        {item}
-                      </AnimatedListItem>
-                    ))}
-                  </ul>
-                </ScrollAnimation>
-              </CardContent>
-            </Card>
-          </ScrollAnimation>
-        </TabsContent>
 
         <TabsContent value="projets" className="mt-6">
           <ScrollAnimation>

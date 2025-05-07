@@ -51,7 +51,6 @@ export default function CompetencesPage() {
                           { name: "DNS / DHCP", value: 85 },
                           { name: "HTTP/S", value: 80 },
                           { name: "SSH / FTP", value: 85 },
-                          { name: "SNMP", value: 75 },
                           { name: "VLAN / VPN", value: 80 },
                         ].map((skill, index) => (
                           <div
@@ -91,10 +90,8 @@ export default function CompetencesPage() {
                         {[
                           { name: "Switches / Routeurs", value: 85 },
                           { name: "Firewalls", value: 80 },
-                          { name: "Proxy", value: 75 },
                           { name: "ACL", value: 80 },
                           { name: "Virtualisation (Proxmox, ESXi)", value: 85 },
-                          { name: "Monitoring", value: 75 },
                         ].map((skill, index) => (
                           <div
                             key={skill.name}

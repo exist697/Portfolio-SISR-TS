@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { BookOpen, Code, Database, Network, Server, Shield, Laptop, Workflow, Globe } from "lucide-react"
+import { BookOpen, Code, Database, Network, Server, Shield, Workflow, Globe } from "lucide-react"
 import ScrollAnimation from "@/components/scroll-animation"
 import AnimatedListItem from "@/components/animated-list-item"
 
@@ -68,26 +68,6 @@ export default function BtsSioPage() {
                     </p>
                   </div>
                 </div>
-              </ScrollAnimation>
-
-              <ScrollAnimation delay={300}>
-                <h3 className="text-xl font-semibold mt-6">Programme de formation</h3>
-                <p>Le programme du BTS SIO comprend des enseignements généraux et professionnels :</p>
-                <ul className="list-disc pl-6 space-y-1 mt-2">
-                  {[
-                    "Culture générale et expression",
-                    "Expression et communication en langue anglaise",
-                    "Mathématiques pour l'informatique",
-                    "Culture économique, juridique et managériale",
-                    "Support et mise à disposition de services informatiques",
-                    "Cybersécurité des services informatiques",
-                    "Enseignements spécifiques selon l'option choisie (SISR ou SLAM)",
-                  ].map((item, index) => (
-                    <AnimatedListItem key={index} index={index}>
-                      {item}
-                    </AnimatedListItem>
-                  ))}
-                </ul>
               </ScrollAnimation>
 
               <ScrollAnimation delay={400}>
@@ -229,11 +209,6 @@ export default function BtsSioPage() {
                       Automatisation des tâches via scripts PowerShell, Bash, etc.
                     </p>
                   </div>
-                  <div className="p-4 border rounded-lg flex flex-col items-center text-center transition-all duration-200 hover:border-primary/30">
-                    <Globe className="h-8 w-8 text-primary mb-2" />
-                    <h4 className="font-medium">Cloud Computing</h4>
-                    <p className="text-sm text-muted-foreground mt-1">Déploiement et gestion d'infrastructures cloud</p>
-                  </div>
                 </div>
               </ScrollAnimation>
 
@@ -246,9 +221,6 @@ export default function BtsSioPage() {
                     "Virtualisation : VMware, Hyper-V, Proxmox",
                     "Services d'annuaire : Active Directory, LDAP",
                     "Solutions de sécurité : Firewalls, VPN, IDS/IPS",
-                    "Cloud computing : Azure, AWS, Google Cloud",
-                    "Conteneurisation : Docker, Kubernetes",
-                    "Supervision : Nagios, Zabbix, Prometheus",
                   ].map((item, index) => (
                     <AnimatedListItem key={index} index={index}>
                       {item}
@@ -337,13 +309,6 @@ export default function BtsSioPage() {
                     <p className="text-sm text-muted-foreground mt-1">Développement de sites et applications web</p>
                   </div>
                   <div className="p-4 border rounded-lg flex flex-col items-center text-center transition-all duration-200 hover:border-secondary/30">
-                    <Laptop className="h-8 w-8 text-primary mb-2" />
-                    <h4 className="font-medium">Mobile</h4>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      Création d'applications pour smartphones et tablettes
-                    </p>
-                  </div>
-                  <div className="p-4 border rounded-lg flex flex-col items-center text-center transition-all duration-200 hover:border-secondary/30">
                     <Shield className="h-8 w-8 text-primary mb-2" />
                     <h4 className="font-medium">Sécurité</h4>
                     <p className="text-sm text-muted-foreground mt-1">Sécurisation des applications et des données</p>
@@ -364,11 +329,8 @@ export default function BtsSioPage() {
                   {[
                     "Langages de programmation : Java, C#, PHP, JavaScript, Python",
                     "Développement web : HTML, CSS, JavaScript, frameworks (React, Angular, Vue.js)",
-                    "Développement mobile : Android, iOS, React Native, Flutter",
                     "Bases de données : SQL, MySQL, PostgreSQL, MongoDB, Oracle",
                     "Outils de gestion de version : Git, GitHub, GitLab",
-                    "Méthodologies : Agile, Scrum, DevOps",
-                    "Sécurité applicative : OWASP, tests d'intrusion, authentification",
                   ].map((item, index) => (
                     <AnimatedListItem key={index} index={index}>
                       {item}
