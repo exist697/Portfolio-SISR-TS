@@ -104,33 +104,37 @@ export default function Home() {
                   systèmes et réseaux.
                 </p>
               </div>
-              <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Link href="/projets">
-                  <Button className="gap-1 bg-primary hover:bg-primary/90 btn-hover-effect">
-                    Voir mes projets
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  </Button>
-                </Link>
-                <a href="/fiche-synthese.pdf" download="Fiche_Synthese_Mohamad.pdf">
-                  <Button className="gap-1 bg-secondary hover:bg-secondary/90 btn-hover-effect">
-                    Télécharger ma fiche synthèse
-                    <Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-1" />
-                  </Button>
-                </a>
-                <Link href="/contact">
-                  <Button
-                    variant="outline"
-                    className="border-primary/20 hover:bg-primary/10 hover:text-primary btn-hover-effect"
-                  >
-                    Me contacter
-                  </Button>
-                </Link>
+              <div className="flex flex-col gap-2 w-full sm:max-w-md">
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <Link href="/projets">
+                    <Button className="gap-1 bg-primary hover:bg-primary/90 btn-hover-effect">
+                      Voir mes projets
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Button>
+                  </Link>
+                  <Link href="/contact">
+                    <Button
+                      variant="outline"
+                      className="border-primary/20 hover:bg-primary/10 hover:text-primary btn-hover-effect"
+                    >
+                      Me contacter
+                    </Button>
+                  </Link>
+                </div>
+                <div className="flex justify-start">
+                  <a href="/fiche-synthese.pdf" download="Fiche_Synthese_Mohamad.pdf">
+                    <Button className="gap-1 bg-secondary hover:bg-secondary/90 btn-hover-effect">
+                      Télécharger ma fiche synthèse
+                      <Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-1" />
+                    </Button>
+                  </a>
+                </div>
               </div>
             </ScrollAnimation>
             <ScrollAnimation direction="right" className="flex items-center justify-center">
-              <div className="relative h-[350px] w-[350px] rounded-full bg-gradient-to-b from-primary/20 to-secondary/20 p-4">
+              <div className="relative h-[300px] w-[300px] md:h-[350px] md:w-[350px] rounded-full bg-gradient-to-b from-primary/20 to-secondary/20 p-4">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="h-[300px] w-[300px] overflow-hidden rounded-full bg-background border-4 border-primary/20">
+                  <div className="h-[250px] w-[250px] md:h-[300px] md:w-[300px] overflow-hidden rounded-full bg-background border-4 border-primary/20">
                     <div className="image-scale">
                       <OptimizedImage
                         src="/images/profile.png"
