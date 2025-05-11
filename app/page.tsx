@@ -122,12 +122,12 @@ export default function Home() {
                   </Link>
                 </div>
                 <div className="flex justify-start">
-                  <a href="/fiche-synthese.pdf" download="Fiche_Synthese_Mohamad.pdf">
-                    <Button className="gap-1 bg-secondary hover:bg-secondary/90 btn-hover-effect">
+                  <Link href="/tableau-synthese.pdf" legacyBehavior>
+                    <a className="inline-flex items-center justify-center gap-1 rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/90 h-9 px-4 py-2">
                       Télécharger ma fiche synthèse
-                      <Download className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-1" />
-                    </Button>
-                  </a>
+                      <Download className="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-y-1" />
+                    </a>
+                  </Link>
                 </div>
               </div>
             </ScrollAnimation>

@@ -1,43 +1,52 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { ArrowRight, FileText, Server, Shield, Workflow } from "lucide-react"
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { ArrowRight, Server, Shield, Workflow, Database, Code } from "lucide-react"
 import ScrollAnimation from "@/components/scroll-animation"
 
 export default function ProjetsPage() {
   const projets = [
     {
       id: "sps1",
-      title: "Mise en place d'une infrastructure réseau sécurisée",
+      title: "Installation et configuration de Windows Server avec Services Bureau à distance",
       description:
-        "Conception et déploiement d'une infrastructure réseau sécurisée pour une PME, incluant segmentation VLAN, pare-feu et VPN.",
-      technologies: ["Cisco", "pfSense", "VPN", "VLAN", "Active Directory"],
+        "Mise en place d'un serveur Windows avec configuration des services RDS pour permettre l'accès à distance aux applications et postes de travail.",
       icon: <Server className="h-5 w-5 transition-transform duration-200 group-hover:scale-110" />,
     },
     {
       id: "sps2",
-      title: "Automatisation du déploiement de postes de travail",
+      title: "Création d'une infrastructure réseau sous Windows Server : DHCP, DNS et Active Directory",
       description:
-        "Création d'un système automatisé de déploiement d'images Windows pour un parc informatique de 50 postes.",
-      technologies: ["Windows Deployment Services", "MDT", "PowerShell", "SCCM"],
+        "Déploiement d'une infrastructure réseau complète avec services DHCP, DNS et Active Directory pour une gestion centralisée des ressources.",
       icon: <Workflow className="h-5 w-5 transition-transform duration-200 group-hover:scale-110" />,
     },
     {
       id: "sps3",
-      title: "Audit de sécurité et remédiation",
+      title: "Configuration des filtres ACL",
       description:
-        "Réalisation d'un audit de sécurité complet sur l'infrastructure d'une entreprise et mise en place des correctifs nécessaires.",
-      technologies: ["Kali Linux", "Nessus", "Metasploit", "OWASP"],
+        "Implémentation de listes de contrôle d'accès (ACL) pour sécuriser le réseau et contrôler le trafic entre différents segments.",
       icon: <Shield className="h-5 w-5 transition-transform duration-200 group-hover:scale-110" />,
     },
     {
       id: "sps4",
-      title: "Migration vers une solution cloud hybride",
+      title: "Conception et mise en œuvre d'un réseau VLAN avec intégration de services Windows",
       description:
-        "Planification et exécution de la migration d'une partie des services d'une entreprise vers une solution cloud hybride.",
-      technologies: ["Azure", "AWS", "Hybrid Cloud", "Docker", "Kubernetes"],
+        "Création d'une infrastructure réseau segmentée en VLANs avec intégration des services Windows pour une gestion optimisée des ressources.",
       icon: <Server className="h-5 w-5 transition-transform duration-200 group-hover:scale-110" />,
+    },
+    {
+      id: "sps5",
+      title: "Installation et configuration de Proxmox et création d'un Cluster",
+      description:
+        "Déploiement d'une solution de virtualisation avec Proxmox VE et mise en place d'un cluster haute disponibilité pour les machines virtuelles.",
+      icon: <Database className="h-5 w-5 transition-transform duration-200 group-hover:scale-110" />,
+    },
+    {
+      id: "sps6",
+      title: "Installation de NGINX et configuration de PHP et HTTPS",
+      description:
+        "Mise en place d'un serveur web NGINX avec support PHP et sécurisation via HTTPS pour l'hébergement d'applications web.",
+      icon: <Code className="h-5 w-5 transition-transform duration-200 group-hover:scale-110" />,
     },
   ]
 
@@ -65,15 +74,6 @@ export default function ProjetsPage() {
                   </div>
                 </div>
               </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {projet.technologies.map((tech) => (
-                    <Badge key={tech} variant="secondary" className="transition-all duration-200 hover:scale-105">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
               <CardFooter className="mt-auto">
                 <Link href={`/projets/${projet.id}`} className="w-full">
                   <Button variant="outline" className="w-full gap-1 transition-all duration-200 group">
@@ -86,30 +86,6 @@ export default function ProjetsPage() {
           </ScrollAnimation>
         ))}
       </div>
-
-      <ScrollAnimation delay={400} direction="up" className="mt-12">
-        <h2 className="text-2xl font-bold tracking-tight mb-4">Documentation des projets</h2>
-        <p className="text-muted-foreground mb-6">
-          Retrouvez ci-dessous les documents complémentaires liés aux projets réalisés.
-        </p>
-
-        <div className="space-y-4">
-          {projets.map((projet, index) => (
-            <ScrollAnimation key={`doc-${projet.id}`} delay={500 + index * 100} direction="right">
-              <div className="flex items-center gap-4 p-4 border rounded-lg transition-all duration-200 hover:border-primary/30 hover:shadow-sm hover:translate-x-1">
-                <FileText className="h-8 w-8 text-primary transition-transform duration-200 group-hover:scale-110" />
-                <div className="flex-1">
-                  <h3 className="font-medium">{projet.title}</h3>
-                  <p className="text-sm text-muted-foreground">Documentation technique et rapport de projet</p>
-                </div>
-                <Button variant="ghost" size="sm" className="transition-transform duration-200 hover:scale-105">
-                  Télécharger
-                </Button>
-              </div>
-            </ScrollAnimation>
-          ))}
-        </div>
-      </ScrollAnimation>
     </div>
   )
 }

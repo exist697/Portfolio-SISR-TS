@@ -341,7 +341,7 @@ export default function CvPage() {
                       ],
                     },
                     {
-                      period: "Mai 2024 - Juin 2024",
+                      period: "Mai 2024 - Juin. 2024",
                       duration: "2 mois",
                       title: "Assistant Chef de projet IT",
                       company: "Infotel, Nanterre",
@@ -372,41 +372,6 @@ export default function CvPage() {
                           ))}
                         </ul>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </ScrollAnimation>
-
-          {/* Projets académiques */}
-          <ScrollAnimation direction="right" delay={300}>
-            <Card className="transition-all duration-200 hover:border-primary/20 hover:shadow-sm">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Code className="h-5 w-5" />
-                  Projets académiques
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {[
-                    {
-                      title: "Mise en place d'une infrastructure réseau sécurisée",
-                      desc: "Conception et déploiement d'une infrastructure réseau pour une PME fictive, incluant segmentation VLAN, pare-feu pfSense, VPN et services d'annuaire Active Directory.",
-                    },
-                    {
-                      title: "Audit de sécurité et remédiation",
-                      desc: "Réalisation d'un audit de sécurité complet sur une infrastructure existante et mise en place des correctifs nécessaires selon les bonnes pratiques de l'ANSSI.",
-                    },
-                    {
-                      title: "Migration vers une solution cloud hybride",
-                      desc: "Planification et exécution de la migration d'une partie des services d'une entreprise vers une solution cloud hybride Azure, incluant la sécurisation des accès et des données.",
-                    },
-                  ].map((project, index) => (
-                    <div key={index} className="transition-all duration-200 hover:translate-x-1">
-                      <h3 className="font-semibold">{project.title}</h3>
-                      <p className="text-sm text-muted-foreground">{project.desc}</p>
                     </div>
                   ))}
                 </div>

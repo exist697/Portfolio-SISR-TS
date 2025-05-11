@@ -1,7 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Badge } from "@/components/ui/badge"
-import { BookOpen, ExternalLink, Lightbulb, Rss, Shield, Bot } from "lucide-react"
+import { Shield, Bot } from "lucide-react"
 import ScrollAnimation from "@/components/scroll-animation"
 import AnimatedListItem from "@/components/animated-list-item"
 
@@ -12,11 +11,8 @@ export default function VeillePage() {
         <h1 className="text-3xl font-bold tracking-tight mb-6">Veille technologique</h1>
       </ScrollAnimation>
 
-      <Tabs defaultValue="methodologie" className="w-full">
-        <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="methodologie" className="transition-all duration-200">
-            Méthodologie
-          </TabsTrigger>
+      <Tabs defaultValue="sujet1" className="w-full">
+        <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="sujet1" className="transition-all duration-200">
             Cybersécurité Cloud
           </TabsTrigger>
@@ -24,145 +20,6 @@ export default function VeillePage() {
             Intelligence Artificielle
           </TabsTrigger>
         </TabsList>
-
-        <TabsContent value="methodologie" className="mt-6">
-          <ScrollAnimation>
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Rss className="h-5 w-5" />
-                  Ma démarche de veille technologique
-                </CardTitle>
-                <CardDescription>Méthodologie et outils utilisés pour ma veille</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <ScrollAnimation delay={100}>
-                  <p>
-                    La veille technologique est une activité essentielle pour tout professionnel de l'informatique. Elle
-                    permet de rester informé des dernières évolutions, tendances et innovations dans son domaine. Dans
-                    le cadre de mon BTS SIO, j'ai mis en place une démarche structurée pour assurer une veille efficace
-                    et pertinente.
-                  </p>
-                </ScrollAnimation>
-
-                <ScrollAnimation delay={150}>
-                  <h3 className="text-xl font-semibold mt-6">Méthodologie</h3>
-                  <div className="space-y-4 mt-2">
-                    <div className="p-4 border rounded-lg transition-all duration-200 hover:border-primary/30 hover:shadow-sm hover:translate-y-[-2px]">
-                      <h4 className="font-medium flex items-center gap-2">
-                        <Lightbulb className="h-4 w-4 text-primary" />
-                        Définition des objectifs
-                      </h4>
-                      <p className="text-sm text-muted-foreground mt-2">
-                        J'ai commencé par définir précisément les domaines qui m'intéressent et qui sont pertinents pour
-                        mon parcours professionnel : la cybersécurité dans le cloud et l'intelligence artificielle
-                        appliquée à l'IT.
-                      </p>
-                    </div>
-                    <div className="p-4 border rounded-lg transition-all duration-200 hover:border-primary/30 hover:shadow-sm hover:translate-y-[-2px]">
-                      <h4 className="font-medium flex items-center gap-2">
-                        <Rss className="h-4 w-4 text-primary" />
-                        Identification des sources
-                      </h4>
-                      <p className="text-sm text-muted-foreground mt-2">
-                        J'ai sélectionné des sources fiables et variées : blogs spécialisés, publications académiques,
-                        rapports d'entreprises, forums professionnels, webinaires et conférences.
-                      </p>
-                    </div>
-                    <div className="p-4 border rounded-lg transition-all duration-200 hover:border-primary/30 hover:shadow-sm hover:translate-y-[-2px]">
-                      <h4 className="font-medium flex items-center gap-2">
-                        <BookOpen className="h-4 w-4 text-primary" />
-                        Collecte et organisation
-                      </h4>
-                      <p className="text-sm text-muted-foreground mt-2">
-                        J'utilise des outils d'agrégation et de curation pour collecter et organiser les informations
-                        pertinentes, en les classant par thématiques et par priorité.
-                      </p>
-                    </div>
-                    <div className="p-4 border rounded-lg transition-all duration-200 hover:border-primary/30 hover:shadow-sm hover:translate-y-[-2px]">
-                      <h4 className="font-medium flex items-center gap-2">
-                        <Shield className="h-4 w-4 text-primary" />
-                        Analyse et synthèse
-                      </h4>
-                      <p className="text-sm text-muted-foreground mt-2">
-                        J'analyse les informations recueillies pour en extraire les tendances, les bonnes pratiques et
-                        les innovations, puis je rédige des synthèses régulières.
-                      </p>
-                    </div>
-                  </div>
-                </ScrollAnimation>
-
-                <ScrollAnimation delay={200}>
-                  <h3 className="text-xl font-semibold mt-6">Outils utilisés</h3>
-                  <div className="grid gap-4 md:grid-cols-3 mt-2">
-                    <div className="p-4 border rounded-lg transition-all duration-200 hover:border-primary/30 hover:shadow-sm hover:translate-y-[-2px]">
-                      <h4 className="font-medium">Agrégateurs de flux</h4>
-                      <ul className="mt-2 space-y-1 text-sm">
-                        {["• Feedly", "• Inoreader", "• RSS Hub"].map((item, index) => (
-                          <li key={index} className="transition-all duration-200 hover:translate-x-1">
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="p-4 border rounded-lg transition-all duration-200 hover:border-primary/30 hover:shadow-sm hover:translate-y-[-2px]">
-                      <h4 className="font-medium">Curation et organisation</h4>
-                      <ul className="mt-2 space-y-1 text-sm">
-                        {["• Notion", "• Pocket", "• Zotero"].map((item, index) => (
-                          <li key={index} className="transition-all duration-200 hover:translate-x-1">
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="p-4 border rounded-lg transition-all duration-200 hover:border-primary/30 hover:shadow-sm hover:translate-y-[-2px]">
-                      <h4 className="font-medium">Alertes et notifications</h4>
-                      <ul className="mt-2 space-y-1 text-sm">
-                        {["• Twitter", "• LinkedIn"].map((item, index) => (
-                          <li key={index} className="transition-all duration-200 hover:translate-x-1">
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </ScrollAnimation>
-
-                <ScrollAnimation delay={250}>
-                  <h3 className="text-xl font-semibold mt-6">Fréquence et organisation</h3>
-                  <p className="mt-2">Ma veille technologique s'organise selon plusieurs temporalités :</p>
-                  <ul className="list-disc pl-6 space-y-1 mt-2">
-                    {[
-                      <span key="1" className="font-medium">
-                        Veille quotidienne
-                      </span>,
-                      <span key="2" className="font-medium">
-                        Veille hebdomadaire
-                      </span>,
-                      <span key="3" className="font-medium">
-                        Veille mensuelle
-                      </span>,
-                      <span key="4" className="font-medium">
-                        Veille événementielle
-                      </span>,
-                    ].map((item, index) => (
-                      <AnimatedListItem key={index} index={index}>
-                        {item} :{" "}
-                        {index === 0
-                          ? "consultation rapide des flux RSS et des alertes (15-20 minutes)"
-                          : index === 1
-                            ? "lecture approfondie d'articles sélectionnés et mise à jour de mes notes (1-2 heures)"
-                            : index === 2
-                              ? "synthèse des informations importantes et identification des tendances émergentes"
-                              : "participation à des webinaires, conférences ou formations spécifiques"}
-                      </AnimatedListItem>
-                    ))}
-                  </ul>
-                </ScrollAnimation>
-              </CardContent>
-            </Card>
-          </ScrollAnimation>
-        </TabsContent>
 
         <TabsContent value="sujet1" className="mt-6">
           <ScrollAnimation>
@@ -455,42 +312,6 @@ export default function VeillePage() {
                       </AnimatedListItem>
                     ))}
                   </ul>
-                </ScrollAnimation>
-
-                <ScrollAnimation delay={350}>
-                  <h3 className="text-xl font-semibold mt-6">Ressources clés</h3>
-                  <div className="space-y-2 mt-2">
-                    <div className="flex items-center gap-2 p-2 rounded-md transition-all duration-200 hover:bg-primary/5">
-                      <Badge variant="outline" className="transition-all duration-200 hover:scale-105">
-                        Blog
-                      </Badge>
-                      <span className="font-medium">Google Cloud AI Blog</span>
-                      <a href="#" className="text-primary ml-auto transition-all duration-200 hover:scale-110">
-                        <ExternalLink className="h-4 w-4" />
-                        <span className="sr-only">Lien externe</span>
-                      </a>
-                    </div>
-                    <div className="flex items-center gap-2 p-2 rounded-md transition-all duration-200 hover:bg-primary/5">
-                      <Badge variant="outline" className="transition-all duration-200 hover:scale-105">
-                        Publication
-                      </Badge>
-                      <span className="font-medium">Gartner - Top Strategic Technology Trends</span>
-                      <a href="#" className="text-primary ml-auto transition-all duration-200 hover:scale-110">
-                        <ExternalLink className="h-4 w-4" />
-                        <span className="sr-only">Lien externe</span>
-                      </a>
-                    </div>
-                    <div className="flex items-center gap-2 p-2 rounded-md transition-all duration-200 hover:bg-primary/5">
-                      <Badge variant="outline" className="transition-all duration-200 hover:scale-105">
-                        Conférence
-                      </Badge>
-                      <span className="font-medium">AI Summit - Enterprise Applications</span>
-                      <a href="#" className="text-primary ml-auto transition-all duration-200 hover:scale-110">
-                        <ExternalLink className="h-4 w-4" />
-                        <span className="sr-only">Lien externe</span>
-                      </a>
-                    </div>
-                  </div>
                 </ScrollAnimation>
               </CardContent>
             </Card>
