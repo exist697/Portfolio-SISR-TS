@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, Server, Shield, Workflow, Database, Code } from "lucide-react"
+import { ArrowRight, Server, Shield, Workflow, Database, Code, FileText, Github } from "lucide-react"
 import ScrollAnimation from "@/components/scroll-animation"
 
 export default function ProjetsPage() {
@@ -48,6 +48,22 @@ export default function ProjetsPage() {
         "Mise en place d'un serveur web NGINX avec support PHP et sécurisation via HTTPS pour l'hébergement d'applications web.",
       icon: <Code className="h-5 w-5 transition-transform duration-200 group-hover:scale-110" />,
     },
+    {
+      id: "airfrance",
+      title: "Création d'un script pour Air France",
+      description:
+        "Documentation d'un script développé pour assurer une migration fluide des données de vols entre SKYTANKING et Infotel, avec gestion des pré-requis, étapes d'exécution et sécurité.",
+      icon: <Code className="h-5 w-5 transition-transform duration-200 group-hover:scale-110" />,
+      documentationFile: "/docs/Procédure_utilisation_TransfertDataVols.pdf",
+    },
+    {
+      id: "security",
+      title: "Outils de sécurité powershell",
+      description:
+        "Un projet de script PowerShell orienté sécurité informatique, comprenant : des outils d'analyse, des automatisations de vérifications, des bonnes pratiques de sécurité système.",
+      icon: <Shield className="h-5 w-5 transition-transform duration-200 group-hover:scale-110" />,
+      githubLink: "https://github.com/exist697/Shell-Security-Toolkit",
+    },
   ]
 
   return (
@@ -62,25 +78,46 @@ export default function ProjetsPage() {
       <div className="grid gap-6 md:grid-cols-2">
         {projets.map((projet, index) => (
           <ScrollAnimation key={projet.id} delay={index * 100}>
-            <Card className="flex flex-col transition-all duration-200 hover:border-primary/20 hover:shadow-md group">
-              <CardHeader>
+            <Card className="flex flex-col h-full transition-all duration-200 hover:border-primary/20 hover:shadow-md group">
+              <CardHeader className="flex-1">
                 <div className="flex items-start justify-between">
                   <div className="space-y-1">
-                    <CardTitle className="flex items-center gap-2">
+                    <CardTitle className="flex items-center gap-2 text-lg">
                       {projet.icon}
                       {projet.title}
                     </CardTitle>
-                    <CardDescription>{projet.description}</CardDescription>
+                    <CardDescription className="line-clamp-3 h-[4.5rem]">{projet.description}</CardDescription>
                   </div>
                 </div>
               </CardHeader>
-              <CardFooter className="mt-auto">
-                <Link href={`/projets/${projet.id}`} className="w-full">
-                  <Button variant="outline" className="w-full gap-1 transition-all duration-200 group">
-                    Voir le détail
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  </Button>
-                </Link>
+              <CardFooter className="pt-2">
+                {projet.id === "airfrance" ? (
+                  <a
+                    href={projet.documentationFile}
+                    download
+                    className="inline-flex w-full items-center justify-center gap-1 rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
+                  >
+                    <FileText className="h-4 w-4" />
+                    Voir la documentation
+                  </a>
+                ) : projet.id === "security" ? (
+                  <a
+                    href={projet.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-full items-center justify-center gap-1 rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
+                  >
+                    <Github className="h-4 w-4" />
+                    Voir sur GitHub
+                  </a>
+                ) : (
+                  <Link href={`/projets/${projet.id}`} className="w-full">
+                    <Button variant="outline" className="w-full gap-1 transition-all duration-200 group">
+                      Voir le détail
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Button>
+                  </Link>
+                )}
               </CardFooter>
             </Card>
           </ScrollAnimation>
