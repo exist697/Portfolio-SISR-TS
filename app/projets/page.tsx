@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, Server, Shield, Workflow, Database, Code, FileText, Github } from "lucide-react"
+import { ArrowRight, Server, Shield, Workflow, Database, Code, FileText, Github, LayoutDashboard } from "lucide-react"
 import ScrollAnimation from "@/components/scroll-animation"
 
 export default function ProjetsPage() {
@@ -64,6 +64,14 @@ export default function ProjetsPage() {
       icon: <Shield className="h-5 w-5 transition-transform duration-200 group-hover:scale-110" />,
       githubLink: "https://github.com/exist697/Shell-Security-Toolkit",
     },
+    {
+      id: "glpi",
+      title: "Installation de GLPI",
+      description:
+        "Projet décrivant l'installation de GLPI pour la gestion des services informatiques, incluant : la mise en place du serveur GLPI, la configuration initiale, les dépendances nécessaires.",
+      icon: <LayoutDashboard className="h-5 w-5 transition-transform duration-200 group-hover:scale-110" />,
+      documentationFile: "/docs/installation_GLPI_technique.pdf",
+    },
   ]
 
   return (
@@ -91,7 +99,7 @@ export default function ProjetsPage() {
                 </div>
               </CardHeader>
               <CardFooter className="pt-2">
-                {projet.id === "airfrance" ? (
+                {projet.id === "airfrance" || projet.id === "glpi" ? (
                   <a
                     href={projet.documentationFile}
                     download
